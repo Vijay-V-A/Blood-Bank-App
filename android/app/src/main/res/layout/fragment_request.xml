@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/req"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".RequestFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_bar_req"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_bottom"
+            android:elevation="2dp"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            tools:ignore="RtlSymmetry">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lexend"
+                android:letterSpacing="0.04"
+                android:text="@string/request_blood"
+                android:textColor="@color/textPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/notification"
+                android:src="@drawable/baseline_circle_notifications_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title_bar_req"
+            android:paddingHorizontal="20dp"
+            tools:ignore="ScrollViewCount,UselessParent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="16dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/patient_detail_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:cardBackgroundColor="@color/background"
+                    app:strokeColor="#D9CFFB">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16sp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="12dp"
+                            android:fontFamily="@font/lexend"
+                            android:text="@string/patient_details"
+                            android:textAllCaps="false"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/patientName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:autofillHints=""
+                            android:background="@drawable/editable_text"
+                            android:fontFamily="@font/lexend"
+                            android:hint="@string/enter_patient_name"
+                            android:inputType="text"
+                            android:padding="16sp"
+                            android:text=""
+                            android:textColor="@color/textPrimary"
+                            android:textColorHint="@color/TextHint"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/age"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:autofillHints=""
+                            android:background="@drawable/editable_text"
+                            android:fontFamily="@font/lexend"
+                            android:hint="@string/enter_patient_age"
+                            android:inputType="number"
+                            android:padding="16sp"
+                            android:text=""
+                            android:textColor="@color/textPrimary"
+                            android:textColorHint="@color/TextHint"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/blood_detail_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:cardBackgroundColor="@color/background"
+                    app:strokeColor="#D9CFFB">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16sp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="12dp"
+                            android:fontFamily="@font/lexend"
+                            android:text="@string/blood_details"
+                            android:textAllCaps="false"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="18sp" />
+
+
+                        <EditText
+                            android:id="@+id/blood_group"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:autofillHints=""
+                            android:background="@drawable/editable_text"
+                            android:ems="10"
+                            android:fontFamily="@font/lexend"
+                            android:hint="@string/select_patient_blood_group"
+                            android:inputType="text"
+                            android:padding="16sp"
+                            android:text=""
+                            android:textColor="@color/textPrimary"
+                            android:textColorHint="@color/TextHint"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/blood_unit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:autofillHints=""
+                            android:background="@drawable/editable_text"
+                            android:ems="10"
+                            android:fontFamily="@font/lexend"
+                            android:hint="@string/enter_no_of_units"
+                            android:inputType="number"
+                            android:padding="16sp"
+                            android:text=""
+                            android:textColor="@color/textPrimary"
+                            android:textColorHint="@color/TextHint"
+                            android:textSize="16sp" />
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/date_time_detail_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:cardBackgroundColor="@color/background"
+                    app:strokeColor="#D9CFFB">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16sp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="12dp"
+                            android:fontFamily="@font/lexend"
+                            android:text="@string/date_and_time_details"
+                            android:textAllCaps="false"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="18sp" />
+
+
+                        <EditText
+                            android:id="@+id/date_and_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:autofillHints=""
+                            android:background="@drawable/editable_text"
+                            android:ems="10"
+                            android:fontFamily="@font/lexend"
+                            android:hint="@string/select_date_and_time"
+                            android:inputType="datetime"
+                            android:padding="16sp"
+                            android:text=""
+                            android:textColor="@color/textPrimary"
+                            android:textColorHint="@color/TextHint"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/location_detail_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40dp"
+                    app:cardBackgroundColor="@color/background"
+                    app:strokeColor="#D9CFFB">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16sp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="12dp"
+                            android:fontFamily="@font/lexend"
+                            android:text="@string/location_details"
+                            android:textAllCaps="false"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="18sp" />
+
+                        <EditText
+                            android:id="@+id/hospital"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:autofillHints=""
+                            android:background="@drawable/editable_text"
+                            android:ems="10"
+                            android:fontFamily="@font/lexend"
+                            android:hint="@string/hospital_or_clinic_name"
+                            android:inputType="text"
+                            android:padding="16sp"
+                            android:text=""
+                            android:textColor="@color/textPrimary"
+                            android:textColorHint="@color/TextHint"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/add1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:autofillHints=""
+                            android:background="@drawable/editable_text"
+                            android:fontFamily="@font/lexend"
+                            android:hint="@string/address_line_1"
+                            android:inputType="text"
+                            android:padding="16sp"
+                            android:text=""
+                            android:textColor="@color/textPrimary"
+                            android:textColorHint="@color/TextHint"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/add2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:autofillHints=""
+                            android:background="@drawable/editable_text"
+                            android:fontFamily="@font/lexend"
+                            android:hint="@string/address_line_2"
+                            android:inputType="text"
+                            android:padding="16sp"
+                            android:text=""
+                            android:textColor="@color/textPrimary"
+                            android:textColorHint="@color/TextHint"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/pin_code"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:autofillHints=""
+                            android:background="@drawable/editable_text"
+                            android:ems="10"
+                            android:fontFamily="@font/lexend"
+                            android:hint="@string/pin_code"
+                            android:inputType="number"
+                            android:padding="16sp"
+                            android:text=""
+                            android:textColor="@color/textPrimary"
+                            android:textColorHint="@color/TextHint"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/city"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:autofillHints=""
+                            android:background="@drawable/editable_text"
+                            android:ems="10"
+                            android:fontFamily="@font/lexend"
+                            android:hint="@string/city"
+                            android:inputType="text"
+                            android:padding="16sp"
+                            android:text=""
+                            android:textColor="@color/textPrimary"
+                            android:textColorHint="@color/TextHint"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/state"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:autofillHints=""
+                            android:background="@drawable/editable_text"
+                            android:ems="10"
+                            android:fontFamily="@font/lexend"
+                            android:hint="@string/select_state"
+                            android:inputType="text"
+                            android:padding="16sp"
+                            android:text=""
+                            android:textColor="@color/textPrimary"
+                            android:textColorHint="@color/TextHint"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/country"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:autofillHints=""
+                            android:background="@drawable/editable_text"
+                            android:ems="10"
+                            android:fontFamily="@font/lexend"
+                            android:hint="@string/select_country"
+                            android:inputType="text"
+                            android:padding="16sp"
+                            android:text=""
+                            android:textColor="@color/textPrimary"
+                            android:textColorHint="@color/TextHint"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/loginBackground"
+                    android:fontFamily="@font/lexend"
+                    android:letterSpacing="0.04"
+                    android:paddingBottom="8dp"
+                    android:text="@string/submit_request"
+                    android:textFontWeight="600" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+</FrameLayout>

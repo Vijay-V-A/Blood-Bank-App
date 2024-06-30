@@ -1,6 +1,11 @@
 package com.vijay.bloodBank;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -37,6 +43,36 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.email.setText(cardData.getEmail());
         holder.mobileNumber.setText(cardData.getMobileNumber());
         holder.location.setText(cardData.getLocation());
+        holder.callButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + cardData.getMobileNumber()));
+
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+                    ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CALL_PHONE}, 1);
+                else
+                    context.startActivity(callIntent);
+
+            }
+        });
+
+        holder.shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String shareContent = "Name: " + cardData.getName() + "\n" +
+                        "Blood Group: " + cardData.getBloodGroup() + "\n" +
+                        "Email: " + cardData.getEmail() + "\n" +
+                        "Mobile Number: " + cardData.getMobileNumber() + "\n" +
+                        "Location: " + cardData.getLocation();
+
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareContent);
+                context.startActivity(Intent.createChooser(shareIntent, "Share via"));
+            }
+        });
+
     }
 
     @Override

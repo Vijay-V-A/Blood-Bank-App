@@ -1,4 +1,4 @@
-package com.vijay.bloodbank.bloodbank;
+package com.vijay.bloodbank;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.vijay.bloodbank.bloodbank;
+package com.vijay.bloodbank;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
